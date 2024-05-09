@@ -1,8 +1,28 @@
-# React + Vite
+# Digital_Jalebi_assignment
+This is a simple project built using Vite React for the frontend and a backend API managed with Postman.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Setup
+To run this project locally, follow these steps:
 
-Currently, two official plugins are available:
+1. Clone the Repository:
+```
+git clone https://github.com/Ayushsinha2629/Digital_Jalebi_assignment.git
+```
+2. Install Dependencies:
+```
+cd Digital_Jalebi_assignment
+npm install
+```
+3. Start the Application:
+```
+npm run dev
+```
+This will start the frontend server and you can access the application in your browser at http://localhost:5173.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Features
+* View Contacts: See a list of all contacts saved.
+* Search Functionality : Enter a name in the search input field and the table updates automatically.
+
+## API Backend
+Ensure that your backend API is correctly configured and accessible for the frontend application.
+
