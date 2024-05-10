@@ -1,6 +1,4 @@
-import React, { useEffect } from 'react';
-import { useState } from 'react';
-
+import React, { useEffect, useState } from 'react';
 
 const HomePage = () => {
     // State variables
@@ -10,12 +8,11 @@ const HomePage = () => {
     const [selectedUser, setSelectedUser] = useState(null);
     const [showModal, setShowModal] = useState(false);
 
-
     // Fetch contacts data on component mount
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const response = await fetch('https://dummyjson.com/users',);
+                const response = await fetch('https://dummyjson.com/users');
 
                 if (!response.ok) {
                     throw new Error('Network response was not ok');
@@ -32,7 +29,7 @@ const HomePage = () => {
         fetchData();
     }, []);
 
-
+    // Filter users based on search input
     useEffect(() => {
         const filtered = users.filter(user =>
             user.firstName.toLowerCase().includes(search.toLowerCase()) ||
@@ -41,38 +38,43 @@ const HomePage = () => {
         setFilteredUsers(filtered);
     }, [search, users]);
 
+    // Handle click on user to show modal
     const handleClick = (user) => {
         setSelectedUser(user);
         setShowModal(true);
-        console.log(user.age)
     };
 
+    // Close modal
     const closeModal = () => {
         setShowModal(false);
     };
 
     return (
         <>
+            {/* Search input */}
             <div className='mb-14 flex gap-5 justify-center'>
                 <input className='w-[30vw] p-2 text-white rounded-lg bg-slate-800' type="text" placeholder="Search by name" value={search} onChange={(e) => setSearch(e.target.value)} />
             </div>
+
+            {/* User list */}
             <div className='flex justify-center mt-6'>
-                <div className='flex border-2 border-white gap-5 w-[55vw] py-2 bg-zinc-900 text-left p-4 max-h-[80vh] overflow-y-scroll rounded-xl bg-opacity-70'>
+                <div className='flex border-2 border-white w-[65vw] py-2 bg-zinc-900 text-left p-4 max-h-[80vh] overflow-y-scroll rounded-xl bg-opacity-70'>
                     <table>
                         <thead>
                             <tr>
                                 <th className='p-7'>Name</th>
-                                <th className='p-[20px]'>Email</th>
+                                <th className='pl-[55px]'>Email</th>
                                 <th className=''>Address</th>
                             </tr>
                         </thead>
                         <tbody>
                             {filteredUsers.map((user) => (
                                 <tr key={user.id}>
+                                    {/* Clickable user name */}
                                     <td
                                         onClick={() => handleClick(user)}
                                         className='p-7 cursor-pointer '>{user.firstName} {user.lastName}</td>
-                                    <td className='pl-4'>{user.email}</td>
+                                    <td className='px-14 '>{user.email}</td>
                                     <td>{user.address.address}, {user.address.city}, {user.address.state}, {user.address.postalCode}</td>
                                 </tr>
                             ))}
@@ -80,13 +82,17 @@ const HomePage = () => {
                     </table>
                 </div>
             </div>
+
             {/* Modal */}
             {showModal && (
                 <div className="flex fixed inset-0 z-50 items-center justify-center bg-black bg-opacity-50">
                     <div className=" flex flex-col gap-7 bg-black p-8 rounded-lg text-white font-semibold text-xl w-[45vw] max-h-[70vh] overflow-y-scroll text-left mt-10">
+                        {/* Modal Header */}
                         <h2 className="text-2xl font-semibold mb-4 flex justify-between">User Details
-                        <button onClick={closeModal} className=" bg-gray-800 text-white px-2 py-2 rounded-lg">Close</button>
+                            {/* Close button */}
+                            <button onClick={closeModal} className=" bg-gray-800 text-white px-2 py-2 rounded-lg">Close</button>
                         </h2>
+                        {/* Display user details */}
                         {selectedUser && (
                             <>
                                 <img src={selectedUser.image} alt="User" className="w-32 h-32 rounded-full mt-4 mx-auto" />
@@ -121,10 +127,9 @@ const HomePage = () => {
                                 <p>Wallet Address: {selectedUser.crypto?.wallet}</p>
                                 <p>Crypto Network: {selectedUser.crypto?.network}</p>
                                 
+                                {/* Include other user details as needed */}
                             </>
                         )}
-                        {/* Include other user details as needed */}
-                        
                     </div>
                 </div>
             )}
@@ -132,4 +137,4 @@ const HomePage = () => {
     );
 };
 
-export default HomePage
+export default HomePage;
