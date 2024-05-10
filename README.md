@@ -22,6 +22,7 @@ This will start the frontend server and you can access the application in your b
 ## Features
 * View Contacts: See a list of all contacts saved.
 * Search Functionality : Enter a name in the search input field and the table updates automatically.
+* User Details: Click on User's name to see specific user details.
 
 ## API Backend
 Ensure that your backend API is correctly configured and accessible for the frontend application.
