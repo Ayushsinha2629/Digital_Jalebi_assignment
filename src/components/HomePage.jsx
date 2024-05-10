@@ -83,7 +83,7 @@ const HomePage = () => {
             {/* Modal */}
             {showModal && (
                 <div className="flex fixed inset-0 z-50 items-center justify-center bg-black bg-opacity-50">
-                    <div className=" flex flex-col gap-7 bg-white p-8 rounded-lg text-black font-semibold text-xl w-[45vw] max-h-[70vh] overflow-y-scroll text-left">
+                    <div className=" flex flex-col gap-7 bg-black p-8 rounded-lg text-white font-semibold text-xl w-[45vw] max-h-[70vh] overflow-y-scroll text-left mt-10">
                         <h2 className="text-2xl font-semibold mb-4 flex justify-between">User Details
                         <button onClick={closeModal} className=" bg-gray-800 text-white px-2 py-2 rounded-lg">Close</button>
                         </h2>
