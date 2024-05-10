@@ -2,7 +2,13 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
+body{
+  background-image: url("https://marketplace.canva.com/EAEe-R-RXI0/1/0/1600w/canva-wooden-desk-workstation-video-centric-office-interior-animated-zoom-virtual-background-ZtTDKBFd-KA.jpg");
+  color: white;
+  overflow: hidden;
+}
+
+/* :root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
@@ -15,4 +21,4 @@
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-}
+} */
